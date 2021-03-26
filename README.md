@@ -14,6 +14,8 @@ As rotas são criadas com Node e Express e o Banco de dados é o MongoDB atlas.
 npm install
 ```
 
+Não esquecer de configurar o MongoDB com o seu usuário e senha na pasta ./config/default.json
+
 ## Ambiente de desenvolvimento
 ```bash
 npm run dev
