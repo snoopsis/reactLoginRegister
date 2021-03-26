@@ -5,6 +5,9 @@ autenticação e registro de usuários. Material-ui é usado para lidar com a pa
 
 As rotas são criadas com Node e Express e o Banco de dados é o MongoDB atlas.
 
+<br />
+<img src="./react-login.gif" alt="react-login">
+
 ## Instalação
 
 ```bash
