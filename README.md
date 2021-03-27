@@ -10,16 +10,38 @@ As rotas são criadas com Node e Express e o Banco de dados é o MongoDB atlas.
 
 ## Instalação
 
+## 1 passo instalar os pacotes no servidor e no cliente
+
 ```bash
+cd reactLoginRegister
+npm install
+
+cd reactLoginRegister/client
 npm install
 ```
 
-Não esquecer de configurar o MongoDB com o seu usuário e senha na pasta ./config/default.json
+## 2 passo criar o arquivo default.json na pasta config/
 
-## Ambiente de desenvolvimento
+```bash
+cd reactLoginRegister/config
+touch default.json
+```
+
+## 3 passo inserir os dados do seu banco de dados MongoDB
+
+```js
+{
+  "mongoURI": "mongodb+srv://usuario:senha@cluster0-7xmit.mongodb.net/users?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
+```
+
+## 4 iniciar projeto em modo de desenvolvimento
+
 ```bash
 npm run dev
 ```
 
 ## Licença
+
 [MIT](https://choosealicense.com/licenses/mit/)
