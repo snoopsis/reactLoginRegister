@@ -5,14 +5,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Typography from "@material-ui/core/Typography";
 import AuthContext from "../../context/auth/AuthContext";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles(theme => ({
   root: {
     "& > *": {
-      margin: theme.spacing(1),
-      width: "80vw"
+      margin: theme.spacing(1)
     }
   }
 }));
@@ -44,61 +44,55 @@ const Perfil = props => {
 
   return (
     <Fragment>
-      <Grid container direction="row">
-        <Link
-          to="/"
-          style={{ color: "#000", marginTop: "10vh", marginLeft: 10 }}
+      <Grid container direction="row" justify="center" alignItems="center">
+        <Grid item xs={12} style={{ textAlign: "center", marginTop: "9vh" }}>
+          <Typography variant="h4" gutterBottom>
+            PERFIL
+          </Typography>
+        </Grid>
+        <form
+          onSubmit={onSubmit}
+          noValidate
+          autoComplete="off"
+          className={classes.root}
         >
-          <ArrowBackIcon />
-        </Link>
-        <Grid item xs={12} style={{ textAlign: "center" }}>
-          <h1>PERFIL</h1>
-          <form
-            className={classes.root}
-            onSubmit={onSubmit}
-            noValidate
-            autoComplete="off"
-          >
+          <Grid item xs={12} style={{ textAlign: "center", marginBottom: 20 }}>
             <TextField
               name="name"
               value={user ? user.name : "Carregando..."}
               label="Nome"
               onChange={onChange}
             />
-
+          </Grid>
+          <Grid item xs={12} style={{ textAlign: "center", marginBottom: 20 }}>
             <TextField
               name="email"
               value={user ? user.email : "Carregando..."}
               label="Email"
               onChange={onChange}
             />
-            <div
-              style={{
-                marginTop: 20,
-                marginBottom: 20,
-                textAlign: "left",
-                marginLeft: 25
-              }}
-            >
-              {user ? (
-                <Button variant="contained" color="secondary">
-                  <Link
-                    to="/senha"
-                    style={{ textDecoration: "none", color: "#fff" }}
-                  >
-                    TROCAR SENHA
-                  </Link>
-                </Button>
-              ) : (
-                "Carregando..."
-              )}
-            </div>
+          </Grid>
 
+          <Grid item xs={12} style={{ textAlign: "center", marginBottom: 20 }}>
+            {user ? (
+              <Button variant="contained" color="secondary">
+                <Link
+                  to="/senha"
+                  style={{ textDecoration: "none", color: "#fff" }}
+                >
+                  TROCAR SENHA
+                </Link>
+              </Button>
+            ) : (
+              "Carregando..."
+            )}
+          </Grid>
+          <Grid item xs={12} style={{ textAlign: "center" }}>
             <Button variant="outlined" color="primary" type="submit">
               {user ? "Atualizar" : <CircularProgress />}
             </Button>
-          </form>
-        </Grid>
+          </Grid>
+        </form>
       </Grid>
     </Fragment>
   );

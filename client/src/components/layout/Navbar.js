@@ -20,6 +20,7 @@ import PersonIcon from "@material-ui/icons/Person";
 // import SaveIcon from "@material-ui/icons/Save";
 import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,9 +29,7 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2)
   },
-  title: {
-    flexGrow: 1
-  },
+
   list: {
     width: 250
   },
@@ -44,9 +43,11 @@ const Navbar = () => {
 
   const { isAuthenticated, logout, user, loading } = authContext;
 
+  const pathname = window.location.pathname;
+
   useEffect(() => {
     // eslint-disable-next-line
-  }, [loading]);
+  }, [loading, pathname]);
 
   const classes = useStyles();
 
@@ -174,7 +175,7 @@ const Navbar = () => {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
-          {user && (
+          {user && pathname !== "/perfil" && pathname !== "/senha" && (
             <IconButton
               edge="start"
               className={classes.menuButton}
@@ -186,6 +187,17 @@ const Navbar = () => {
             </IconButton>
           )}
 
+          {pathname === "/perfil" && (
+            <Link to="/" style={{ color: "#fff" }}>
+              <ArrowBackIcon />
+            </Link>
+          )}
+          {pathname === "/senha" && (
+            <Link to="/" style={{ color: "#fff" }}>
+              <ArrowBackIcon />
+            </Link>
+          )}
+
           <Drawer
             open={state["left"]}
             onClose={toggleDrawer("left", false)}
@@ -193,7 +205,7 @@ const Navbar = () => {
           >
             {list("Left")}
           </Drawer>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" style={{ marginLeft: 20 }}>
             Login System
           </Typography>
         </Toolbar>

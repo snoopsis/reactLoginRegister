@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://snoopsis:passwordxxx@cluster0-7xmit.mongodb.net/users?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://snoopsis:euvcml1112@cluster0-7xmit.mongodb.net/users?retryWrites=true&w=majority",
   "jwtSecret": "secret"
 }

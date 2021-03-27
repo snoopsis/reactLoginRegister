@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import Typography from "@material-ui/core/Typography";
 
 const Senha = props => {
   const authContext = useContext(AuthContext);
@@ -51,12 +52,11 @@ const Senha = props => {
     <div>
       <form onSubmit={onSubmit}>
         <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item xs={12} style={{ marginTop: "10vh", marginLeft: 10 }}>
-            <Link to="/" style={{ color: "#000" }}>
-              <ArrowBackIcon />
-            </Link>
+          <Grid item xs={12} style={{ marginTop: "9vh", textAlign: "center" }}>
+            <Typography variant="h4" gutterBottom>
+              SENHA
+            </Typography>
           </Grid>
-          <h1>SENHA</h1>
           <Grid item xs={12} style={{ textAlign: "center", marginTop: 15 }}>
             {user && (
               <TextField
