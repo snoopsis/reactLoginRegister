@@ -15,7 +15,8 @@ import {
   EDIT_USER,
   USER_ERROR,
   SET_CURRENT,
-  MUDA_SENHA
+  MUDA_SENHA,
+  MUDA_FOTO
 } from "../types";
 
 const AuthState = props => {
@@ -97,7 +98,7 @@ const AuthState = props => {
     }
   };
 
-  // Update Contact
+  // Update User
   const editUser = async user => {
     const config = {
       headers: {
@@ -133,6 +134,34 @@ const AuthState = props => {
 
       dispatch({
         type: MUDA_SENHA,
+        payload: res.data,
+        resposta: res.status
+      });
+    } catch (error) {
+      dispatch({
+        type: USER_ERROR,
+        payload: error.response.msg
+      });
+    }
+  };
+
+  // Muda Foto
+  const mudaFoto = async formData => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    try {
+      const res = await axios.post(
+        `/api/users/avatar/${state.user._id}`,
+        formData,
+        config
+      );
+
+      dispatch({
+        type: MUDA_FOTO,
         payload: res.data,
         resposta: res.status
       });
@@ -180,7 +209,8 @@ const AuthState = props => {
         editUser,
         changeUser,
         resposta: state.resposta,
-        mudaSenha
+        mudaSenha,
+        mudaFoto
       }}
     >
       {props.children}

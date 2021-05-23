@@ -67,12 +67,6 @@ const Login = props => {
       alignItems="center"
       style={{ marginTop: "18vh" }}
     >
-      <Grid item xs={12} style={{ textAlign: "center", marginTop: 15 }}>
-        <Typography variant="h4" component="h2" gutterBottom>
-          Entrar
-        </Typography>
-      </Grid>
-
       <form onSubmit={onSubmit} className={classes.root}>
         <Grid item xs={12}>
           <TextField
@@ -111,7 +105,7 @@ const Login = props => {
             <span style={{ color: "blue", fontWeight: 400 }}>Registro</span>
           </Typography>
         </Link>
-        <Grid item xs={12} style={{ marginTop: 15 }}>
+        <Grid item xs={12}>
           {espera ? (
             <CircularProgress />
           ) : (

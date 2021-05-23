@@ -36,7 +36,7 @@ const Register = props => {
 
   const [espera, setEspera] = useState(false);
 
-  const { name, email, password, password2 } = user;
+  const { name, lastName, email, password, password2 } = user;
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
@@ -50,6 +50,7 @@ const Register = props => {
       setEspera(loading);
       register({
         name,
+        lastName,
         email,
         password
       });
@@ -71,9 +72,7 @@ const Register = props => {
               <ArrowBackIcon />
             </Link>
           </Grid>
-          <Typography variant="h4" gutterBottom>
-            Registro
-          </Typography>
+
           <Grid item xs={12} style={{ textAlign: "center" }}>
             <TextField
               type="text"
@@ -82,6 +81,17 @@ const Register = props => {
               onChange={onChange}
               required
               label="Nome"
+            />
+          </Grid>
+
+          <Grid item xs={12} style={{ textAlign: "center", marginTop: 15 }}>
+            <TextField
+              type="text"
+              name="lastName"
+              value={lastName}
+              onChange={onChange}
+              required
+              label="Sobrenome"
             />
           </Grid>
 

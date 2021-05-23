@@ -10,7 +10,8 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
   SET_CURRENT,
-  MUDA_SENHA
+  MUDA_SENHA,
+  MUDA_FOTO
 } from "../types";
 
 export default (state, action) => {
@@ -53,6 +54,13 @@ export default (state, action) => {
         resposta: action.resposta
       };
     case MUDA_SENHA:
+      return {
+        ...state,
+        loading: false,
+        resposta: action.resposta
+      };
+
+    case MUDA_FOTO:
       return {
         ...state,
         loading: false,

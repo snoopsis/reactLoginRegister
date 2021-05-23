@@ -50,12 +50,7 @@ const Senha = props => {
     <div>
       <form onSubmit={onSubmit}>
         <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item xs={12} style={{ marginTop: "9vh", textAlign: "center" }}>
-            <Typography variant="h4" gutterBottom>
-              SENHA
-            </Typography>
-          </Grid>
-          <Grid item xs={12} style={{ textAlign: "center", marginTop: 15 }}>
+          <Grid item xs={12} style={{ textAlign: "center", marginTop: 75 }}>
             {user && (
               <TextField
                 name="password1"

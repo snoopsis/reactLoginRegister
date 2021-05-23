@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/auth/AuthContext";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
@@ -45,9 +45,13 @@ const Navbar = () => {
 
   const pathname = window.location.pathname;
 
+  const [url, setURL] = useState();
+
   useEffect(() => {
+    setURL(window.location.href);
+
     // eslint-disable-next-line
-  }, [loading, pathname]);
+  }, [loading, pathname, url]);
 
   const classes = useStyles();
 
@@ -114,7 +118,7 @@ const Navbar = () => {
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText style={{ marginTop: 11 }}>Inicio</ListItemText>
+            <ListItemText style={{ marginTop: 11 }}>Dashboard</ListItemText>
           </ListItem>
         </Link>
         {/* {!isAuthenticated && !loading && (
@@ -206,7 +210,7 @@ const Navbar = () => {
             {list("Left")}
           </Drawer>
           <Typography variant="h6" style={{ marginLeft: 20 }}>
-            Login System
+            {url && url.slice(22).toUpperCase()}
           </Typography>
         </Toolbar>
       </AppBar>

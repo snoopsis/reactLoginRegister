@@ -12,5 +12,6 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const MUDA_SENHA = "MUDA_SENHA";
+export const MUDA_FOTO = "MUDA_FOTO";
 export const REMOVE_ALERT = "REMOVE_ALERT";
 export const SET_ALERT = "SET_ALERT";
